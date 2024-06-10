@@ -1,0 +1,88 @@
+const gamesData = [
+          {
+                    id: 1,
+                    game: "Mobile Legends",
+                    company: "Moonton",
+                    url: "/",
+                    image: "/images/products/games/mobile-legends.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "PUBG Mobile",
+                    company: "Krafton",
+                    url: "/",
+                    image: "/images/products/games/pubg.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+          {
+                    id: 2,
+                    game: "Free Fire",
+                    company: "Garena",
+                    url: "/",
+                    image: "/images/products/games/free-fire.png",
+          },
+]
+
+export default gamesData;

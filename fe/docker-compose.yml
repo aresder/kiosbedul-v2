@@ -1,0 +1,24 @@
+version: '3.8'
+name: "turugames-frontend"
+services:
+  app:
+    container_name: turugames-web
+    image: turugames-frontend
+    command: ["sh", "-c", "npm run dev"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL_REGISTER: "https://v2.kiosbedul.id/api/v1/register"
+      API_URL_LOGIN: "https://v2.kiosbedul.id/api/v1/login"
+    networks:
+      turugames-network:
+        ipv4_address: 172.45.0.16
+
+networks:
+  turugames-network:
+    ipam:
+      config:
+        - subnet: 172.45.0.0/16
