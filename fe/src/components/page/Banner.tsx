@@ -13,7 +13,7 @@ const Banner = () => {
       <div className="relative w-full flex justify-center">
         <Image
           as={NextImage}
-          className="w-full h-auto shadow-xl shadow-orange-500"
+          isBlurred
           src="/images/banner/banner-kiosbedul.png"
           alt="Banner"
           sizes="300em"

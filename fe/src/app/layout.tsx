@@ -5,6 +5,8 @@ import PageFooter from "./footer";
 import NavBar from "./navbar";
 import NextTopLoader from "nextjs-toploader";
 import { Providers } from "./providers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -24,7 +26,10 @@ export default function RootLayout({
         <main className={`${inter.className} bg-[#121a23]`}>
           <NextTopLoader color="#b04e4e" showSpinner={false} height={5} />
           <NavBar />
-          <Providers>{children}</Providers>
+          <Providers>
+            <ToastContainer theme="dark" />
+            {children}
+          </Providers>
           <PageFooter />
         </main>
       </body>

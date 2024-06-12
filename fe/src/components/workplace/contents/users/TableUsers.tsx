@@ -1,6 +1,6 @@
 "use client";
+import GetUsers from "@/lib/func/GetUsers";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -17,31 +17,25 @@ interface Users {
   registerAt: string;
 }
 
-const getUsers = async () => {
-  const res = await fetch("http://localhost:5000/users", {
-    cache: "no-store",
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return res.json();
-};
-
-const BoxTable = async () => {
-  const users: Users[] = await getUsers();
-
+const TableUsers = async () => {
+  const users: Users[] = await GetUsers(
+    "http://localhost:5000/users",
+    "GET",
+    "no-store"
+  );
   return (
     <>
-      <Table className="light text-[#162331] sm:px-8" radius="lg">
+      <Table
+        aria-label="Table"
+        className="light text-[#162331] sm:px-8"
+        radius="lg">
         <TableHeader>
           <TableColumn>#</TableColumn>
           <TableColumn>Username</TableColumn>
           <TableColumn>Status</TableColumn>
           <TableColumn>Registered at</TableColumn>
-          <TableColumn>Action</TableColumn>
         </TableHeader>
-        <TableBody emptyContent="No Data Found">
+        <TableBody emptyContent="No banner found.">
           {users.map((user, index) => (
             <TableRow key={user.id}>
               <TableCell>{index + 1}</TableCell>
@@ -56,8 +50,8 @@ const BoxTable = async () => {
   );
 };
 
-const BoxTableComponent = () => {
-  return <BoxTable />;
+const TableUsersComponent = () => {
+  return <TableUsers />;
 };
 
-export default BoxTableComponent;
+export default TableUsersComponent;

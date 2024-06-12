@@ -17,6 +17,7 @@ interface InputProps {
   auto: string;
   size: string;
   table: boolean;
+  required: boolean;
 }
 
 const BoxInputFileComponent = ({
@@ -25,6 +26,7 @@ const BoxInputFileComponent = ({
   auto,
   size,
   table,
+  required,
 }: InputProps) => {
   const [expanded] = useState<boolean>(table);
 
@@ -40,6 +42,7 @@ const BoxInputFileComponent = ({
             type="file"
             id={name}
             autoComplete={auto}
+            required={required}
           />
           <small className="pt-2 opacity-80">Size: {size} (px)</small>
         </div>

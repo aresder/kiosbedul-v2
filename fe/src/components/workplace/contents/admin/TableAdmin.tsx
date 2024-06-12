@@ -1,6 +1,5 @@
 "use client";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -8,6 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/react";
+import HandleUpdateAdmin from "./HandleUpdateAdmin";
+import HandleDeleteAdmin from "./HandleDeleteAdmin";
+import GetUsers from "@/lib/func/GetUsers";
 
 interface Users {
   id: number;
@@ -17,23 +19,18 @@ interface Users {
   registerAt: string;
 }
 
-const getUsers = async () => {
-  const res = await fetch("http://localhost:5000/users", {
-    cache: "no-store",
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return res.json();
-};
-
-const BoxTable = async () => {
-  const users: Users[] = await getUsers();
-
+const TableAdmin = async () => {
+  const users: Users[] = await GetUsers(
+    "http://localhost:5000/users",
+    "GET",
+    "no-store"
+  );
   return (
     <>
-      <Table className="light text-[#162331] sm:px-8" radius="lg">
+      <Table
+        aria-label="Table"
+        className="light text-[#162331] sm:px-8"
+        radius="lg">
         <TableHeader>
           <TableColumn>#</TableColumn>
           <TableColumn>Username</TableColumn>
@@ -41,13 +38,17 @@ const BoxTable = async () => {
           <TableColumn>Registered at</TableColumn>
           <TableColumn>Action</TableColumn>
         </TableHeader>
-        <TableBody emptyContent="No Data Found">
+        <TableBody emptyContent="No Data found">
           {users.map((user, index) => (
             <TableRow key={user.id}>
               <TableCell>{index + 1}</TableCell>
               <TableCell>{user.username}</TableCell>
               <TableCell>{user.status}</TableCell>
               <TableCell>{user.registerAt}</TableCell>
+              <TableCell className="flex gap-2">
+                <HandleUpdateAdmin {...user} />
+                <HandleDeleteAdmin {...user} />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -56,8 +57,8 @@ const BoxTable = async () => {
   );
 };
 
-const BoxTableComponent = () => {
-  return <BoxTable />;
+const TableAdminComponent = () => {
+  return <TableAdmin />;
 };
 
-export default BoxTableComponent;
+export default TableAdminComponent;

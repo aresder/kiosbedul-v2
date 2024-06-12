@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const AlertInformation: any = () => {
+const AlertInformation = () => {
   return (
     <div className="flex justify-center items-center fixed top-0 left-0 right-0 bottom-0">
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-slate-900/60 backdrop-blur-sm w-full -z-20"></div>
